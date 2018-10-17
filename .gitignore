@@ -1,0 +1,10 @@
+/.idea/
+/1-AsyncImageRecordingSample/.vs/
+/imgs/
+/__pycache__/
+/DobotDll/__pycache__/
+*.pyc
+*.cache
+*.exe
+/1-AsyncImageRecordingSample/obj/Debug/
+/1-AsyncImageRecordingSample/bin/Debug/

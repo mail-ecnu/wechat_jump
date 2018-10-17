@@ -1,13 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Jai_FactoryDotNET;
-using System.Threading;
-using System.IO;
 
 namespace SimpleImageDisplaySample
 {
@@ -283,9 +278,7 @@ namespace SimpleImageDisplaySample
                         error = Jai_FactoryWrapper.J_Image_FromRawToImage(ref ii, ref localImageInfo, 4096, 4096, 4096);
 
                         // Save the image to disks
-                        error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "..\\" + "phone.png");
-
-                        //error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "C:\\Users\\aida\\Desktop\\wechat_jump\\" + "phone.png");
+                        error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "E:\\ArmsWork\\WX_jump\\wechat_jump\\" + "phone.png");
 
                         //Free the conversion buffer
                         error = Jai_FactoryWrapper.J_Image_Free(ref localImageInfo);
@@ -309,14 +302,6 @@ namespace SimpleImageDisplaySample
 
                 //Thread.Sleep(500);
             }
-            //     Thread.Sleep(1000);
-
-            // if(!File.Exists("D:\\Cstest\\RecordedImage" + "ppppp" + ".tif"))
-            //  {
-
-            //    }
-
-
         }
 
         void myCamera_AsyncImageRecordingDoneEvent(int Count)
@@ -600,7 +585,7 @@ namespace SimpleImageDisplaySample
                     error = Jai_FactoryWrapper.J_Image_FromRawToImage(ref ii, ref localImageInfo, 4096, 4096, 4096);
 
                     // Save the image to disks
-                    error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "C:\\Users\\aida\\Desktop\\wechat_jump\\" + "phone.png");
+                    error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "E:\\ArmsWork\\WX_jump\\wechat_jump\\" + "phone.png");
 
                     //Free the conversion buffer
                     error = Jai_FactoryWrapper.J_Image_Free(ref localImageInfo);
@@ -755,6 +740,16 @@ namespace SimpleImageDisplaySample
             }
 
             error = Jai_FactoryWrapper.J_Node_SetValueString(hNodeIncoming, false, sbJaiPixelFormatName.ToString());
+        }
+
+        private void captureCountNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveRawCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

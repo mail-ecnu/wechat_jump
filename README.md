@@ -1,7 +1,7 @@
 # HOW TO USE
 ## 安装SDK
-1. 安装JAI相机SDK
-2. DOBOT机械臂SDK
+1. 安装JAI相机[JAI SDK and Control Tool (64-bit)](https://www.jai.com/cn/support-software/jai-software),64位系统直接点[这个](https://www.jai.com/cn/downloads/jai-sdk-and-control-tool-64bit-version), ~~microview 的相机装的 jai的ebus~~
+2. [DOBOT机械臂SDK](https://cn.dobot.cc/downloadcenter.html)，注意要把DLL库放到系统的环境变量中(E:\ArmsWork\WX_jump\wechat_jump\DobotDemoForPython)
 3. `pip3 install PyQt5,opencv`
 
 ## 运行相机拍摄程序
@@ -9,7 +9,7 @@
 
 ## 运行识别与操作程序
 `python AllForOne.py`运行程序，界面如下
-![](./doc_imgs/gui.png)
+![](doc/gui.png)
 
 在框中填入手机的分辨率，然后点击`play`开始`stop`停止。
 

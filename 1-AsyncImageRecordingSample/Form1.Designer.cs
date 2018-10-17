@@ -45,9 +45,11 @@ namespace SimpleImageDisplaySample
             this.asynchImageRecordingGroupBox = new System.Windows.Forms.GroupBox();
             this.recordingModeComboBox = new System.Windows.Forms.ComboBox();
             this.recordingModeLabel = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.saveRawCheckBox = new System.Windows.Forms.CheckBox();
             this.skipCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.skipCountLabel = new System.Windows.Forms.Label();
+            this.recordingStatusLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.replayButton = new System.Windows.Forms.Button();
             this.stopCaptureButton = new System.Windows.Forms.Button();
@@ -56,8 +58,6 @@ namespace SimpleImageDisplaySample
             this.captureCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.recordingStatusLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.ImageSizeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HeightNumericUpDown)).BeginInit();
@@ -256,6 +256,13 @@ namespace SimpleImageDisplaySample
             this.recordingModeLabel.TabIndex = 11;
             this.recordingModeLabel.Text = "Recording mode:";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(205, 90);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(276, 18);
+            this.progressBar1.TabIndex = 10;
+            // 
             // saveRawCheckBox
             // 
             this.saveRawCheckBox.AutoSize = true;
@@ -265,6 +272,7 @@ namespace SimpleImageDisplaySample
             this.saveRawCheckBox.TabIndex = 9;
             this.saveRawCheckBox.Text = "Save Raw";
             this.saveRawCheckBox.UseVisualStyleBackColor = true;
+            this.saveRawCheckBox.CheckedChanged += new System.EventHandler(this.saveRawCheckBox_CheckedChanged);
             // 
             // skipCountNumericUpDown
             // 
@@ -288,6 +296,16 @@ namespace SimpleImageDisplaySample
             this.skipCountLabel.TabIndex = 7;
             this.skipCountLabel.Text = "Skip Count:";
             this.toolTip1.SetToolTip(this.skipCountLabel, "Number of frames to skip during recording");
+            // 
+            // recordingStatusLabel
+            // 
+            this.recordingStatusLabel.AutoSize = true;
+            this.recordingStatusLabel.Location = new System.Drawing.Point(6, 92);
+            this.recordingStatusLabel.Name = "recordingStatusLabel";
+            this.recordingStatusLabel.Size = new System.Drawing.Size(113, 12);
+            this.recordingStatusLabel.TabIndex = 6;
+            this.recordingStatusLabel.Text = "Recording Stopped.";
+            this.toolTip1.SetToolTip(this.recordingStatusLabel, "Status for the recording");
             // 
             // saveButton
             // 
@@ -360,28 +378,12 @@ namespace SimpleImageDisplaySample
             0,
             0,
             0});
+            this.captureCountNumericUpDown.ValueChanged += new System.EventHandler(this.captureCountNumericUpDown_ValueChanged);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(205, 90);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(276, 18);
-            this.progressBar1.TabIndex = 10;
-            // 
-            // recordingStatusLabel
-            // 
-            this.recordingStatusLabel.AutoSize = true;
-            this.recordingStatusLabel.Location = new System.Drawing.Point(6, 92);
-            this.recordingStatusLabel.Name = "recordingStatusLabel";
-            this.recordingStatusLabel.Size = new System.Drawing.Size(113, 12);
-            this.recordingStatusLabel.TabIndex = 6;
-            this.recordingStatusLabel.Text = "Recording Stopped.";
-            this.toolTip1.SetToolTip(this.recordingStatusLabel, "Status for the recording");
             // 
             // Form1
             // 
