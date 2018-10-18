@@ -278,7 +278,7 @@ namespace SimpleImageDisplaySample
                         error = Jai_FactoryWrapper.J_Image_FromRawToImage(ref ii, ref localImageInfo, 4096, 4096, 4096);
 
                         // Save the image to disks
-                        error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "E:\\ArmsWork\\WX_jump\\wechat_jump\\" + "phone.png");
+                        error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "E:\\ArmsWork\\WX_jump\\wechat_jump\\doc\\temp\\" + "phone.png");
 
                         //Free the conversion buffer
                         error = Jai_FactoryWrapper.J_Image_Free(ref localImageInfo);

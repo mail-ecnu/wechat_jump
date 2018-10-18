@@ -17,3 +17,22 @@ Today for python codes we have `AllForOne.py` which is the GUI(pyQT) and `play.p
 Separation `play_dobot.py`, for most dobot operations.
 
 Tomorrow maybe codes for pictures, Tired today.
+
+## 2018.10.18
+
+Separate 
+- `play_camera.py`: get images from camera and preprocessing
+- `play_cv.py`: image processing.
+
+Jarvis, you are dead.
+
+Future work: `main.py`, GUI need update.
+
+
+
+
+
+
+
+
+

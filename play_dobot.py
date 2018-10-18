@@ -1,3 +1,4 @@
+import time
 from DobotDll import DobotDllType as dType
 
 CON_STR = {
@@ -13,7 +14,7 @@ def init(speed=100, coordinate=4000):
     dType.SetPTPCoordinateParams(api, coordinate, coordinate, coordinate, coordinate, isQueued=1)
 
 
-def work(press_time):
+def press_screen(press_time):
     dType.SetQueuedCmdClear(api)
     init() if press_time > 450 else init(coordinate=9000)
     waiting_time = press_time * 0.001
@@ -44,3 +45,19 @@ def moveForward(offset=0):
         dType.dSleep(0)
     dType.SetQueuedCmdStopExec(api)
     dType.SetQueuedCmdClear(api)
+
+
+def play_1_loop(press_time, dobot_state):
+    if dobot_state == dType.DobotConnect.DobotConnect_NoError:
+        moveForward()
+        press_screen(press_time)
+        time.sleep(1.7)
+        moveForward(offset=-70)
+
+        time1 = 0.2
+        time.sleep(time1)
+        divide = 500.0
+        if press_time / divide < time1:
+            time.sleep(time1)
+        else:
+            time.sleep(press_time / divide)

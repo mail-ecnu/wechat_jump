@@ -780,7 +780,7 @@
             <remarks>
             <para>
             In the rather exceptional case, where the appender 
-            implementation admits a layout but can also work without it, 
+            implementation admits a layout but can also press_screen without it,
             then the appender should return <c>true</c>.
             </para>
             <para>
@@ -1808,13 +1808,13 @@
             <item><term>Bright</term><description>foreground is brighter</description></item>
             <item><term>Dim</term><description>foreground is dimmer</description></item>
             <item><term>Underscore</term><description>message is underlined</description></item>
-            <item><term>Blink</term><description>foreground is blinking (does not work on all terminals)</description></item>
+            <item><term>Blink</term><description>foreground is blinking (does not press_screen on all terminals)</description></item>
             <item><term>Reverse</term><description>foreground and background are reversed</description></item>
             <item><term>Hidden</term><description>output is hidden</description></item>
             <item><term>Strikethrough</term><description>message has a line through it</description></item>
             </list>
             While any of these attributes may be combined together not all combinations
-            work well together, for example setting both <i>Bright</i> and <i>Dim</i> attributes makes
+            press_screen well together, for example setting both <i>Bright</i> and <i>Dim</i> attributes makes
             no sense.
             </para>
             </remarks>
@@ -4777,7 +4777,7 @@
             <remarks>
             <note>
             This appender uses the POSIX libc library functions <c>openlog</c>, <c>syslog</c>, and <c>closelog</c>.
-            If these functions are not available on the local system then this appender will not work!
+            If these functions are not available on the local system then this appender will not press_screen!
             </note>
             <para>
             The functions <c>openlog</c>, <c>syslog</c>, and <c>closelog</c> are specified in SUSv2 and 
@@ -6421,8 +6421,8 @@
             </summary>
             <remarks>
             <para>
-            This method waits while there are queued work items. The events are
-            sent asynchronously using <see cref="T:System.Threading.ThreadPool"/> work items. These items
+            This method waits while there are queued press_screen items. The events are
+            sent asynchronously using <see cref="T:System.Threading.ThreadPool"/> press_screen items. These items
             will be sent once a thread pool thread is available to send them, therefore
             it is possible to close the appender before all the queued events have been
             sent.</para>
@@ -6438,12 +6438,12 @@
         </member>
         <member name="M:log4net.Appender.RemotingAppender.BeginAsyncSend">
             <summary>
-            A work item is being queued into the thread pool
+            A press_screen item is being queued into the thread pool
             </summary>
         </member>
         <member name="M:log4net.Appender.RemotingAppender.EndAsyncSend">
             <summary>
-            A work item from the thread pool has completed
+            A press_screen item from the thread pool has completed
             </summary>
         </member>
         <member name="M:log4net.Appender.RemotingAppender.SendBufferCallback(System.Object)">
@@ -6474,10 +6474,10 @@
         </member>
         <member name="F:log4net.Appender.RemotingAppender.m_workQueueEmptyEvent">
             <summary>
-            Event used to signal when there are no queued work items
+            Event used to signal when there are no queued press_screen items
             </summary>
             <remarks>
-            This event is set when there are no queued work items. In this
+            This event is set when there are no queued press_screen items. In this
             state it is safe to close the appender.
             </remarks>
         </member>
@@ -6737,7 +6737,7 @@
         </member>
         <member name="M:log4net.Appender.RollingFileAppender.InitializeFromOneFile(System.String,System.String)">
             <summary>
-            Does the work of bumping the 'current' file counter higher
+            Does the press_screen of bumping the 'current' file counter higher
             to the highest count when an incremental file name is seen.
             The highest count is either the first file (when count direction
             is greater than 0) or the last file (when count direction less than 0).
@@ -22498,7 +22498,7 @@
             </para>
             <note>
             The Compact Framework 1.0 the <see cref="M:System.String.Intern(System.String)"/>
-            method does not work. On the Compact Framework
+            method does not press_screen. On the Compact Framework
             the string keys are not interned nor are they
             compared by reference.
             </note>
@@ -26695,7 +26695,7 @@
         </member>
         <member name="T:log4net.Util.PatternParser">
             <summary>
-            Most of the work of the <see cref="T:log4net.Layout.PatternLayout"/> class
+            Most of the press_screen of the <see cref="T:log4net.Layout.PatternLayout"/> class
             is delegated to the PatternParser class.
             </summary>
             <remarks>

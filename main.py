@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit, QGridLayout, QApplication, QPushButton)
 from PyQt5 import QtGui, QtCore
 import play
+from directory import *
 
 
 class ProcessRunnable(QtCore.QRunnable):
@@ -45,9 +46,8 @@ class Example(QWidget):
         print('stopppppp')
 
     def signalCall1(self, press_time):
-        print("signal1 emit")
-        self.p0 = ProcessRunnable(target=changeImg, args=(self.imageLabel, '../phone.png'))
-        self.p1 = ProcessRunnable(target=changeImg, args=(self.imageLabel2, 'last.png'))
+        self.p0 = ProcessRunnable(target=changeImg, args=(self.imageLabel, '%slast0.png' % temp_dir))
+        self.p1 = ProcessRunnable(target=changeImg, args=(self.imageLabel2, '%slast1.png' % temp_dir))
         self.p2 = ProcessRunnable(target=changeText,args=(self.timeLineLabel, press_time))
         self.p0.start()
         self.p1.start()

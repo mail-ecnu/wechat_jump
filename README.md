@@ -9,7 +9,7 @@
 
 ## 运行识别与操作程序
 `python AllForOne.py`运行程序，界面如下
-![](doc/gui.png)
+![](doc/pic/gui.png)
 
 在框中填入手机的分辨率，然后点击`play`开始`stop`停止。
 
@@ -21,12 +21,7 @@
 ## 载入待识别图片与模版
 载入棋子，结束以及白点的模版：
 
-```python
-# Load Template For player,end,and withe circle.
-temp1 = cv2.imread('temp_player.jpg', 0)
-temp_end = cv2.imread('temp_end.jpg', 0)
-temp_white_circle = cv2.imread('temp_white_circle.jpg', 0)
-```
+
 
 载入并旋转图片：
 
@@ -56,7 +51,7 @@ img_rgb = cv2.flip(img_rgb, 0);
 7. 通过透视变换转成一个750x1334分辨率的屏幕`cv2.warpPerspective(canny_img, M, (1080, 1920))`
 
 原图
-![](phone.png)
+![](doc/temp/phone.png)
 
 处理后
 ![](pre.png)
@@ -86,7 +81,7 @@ if max_val2 > 0.91:
 如果没匹配到白点的话，则我们需要自己找到目标点，先删除棋子的边缘值，由于预处理过程并不能保证很理想，所以在这里我们自己想了个解决方案，我们从400（上面的数字部分跳过）开始，从上往下遍历，设置一个maxl（记录所遇到的行的最左最右点的最大间隔），如果连续三行都小于maxl，则认为maxl即我们需要找的物块行，再取平均，就得到了中心点位置。详细代码见`play.py`的`get_center()`实现。
 
 结果
-![](last.png)
+
 
 ## 计算目标时间
 直接计算欧式距离，再乘以一与手机相关的参数，即可得到时间
