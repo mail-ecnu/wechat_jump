@@ -2,10 +2,10 @@
 ## 安装SDK
 1. 安装JAI相机[JAI SDK and Control Tool (64-bit)](https://www.jai.com/cn/support-software/jai-software),64位系统直接点[这个](https://www.jai.com/cn/downloads/jai-sdk-and-control-tool-64bit-version), ~~microview 的相机装的 jai的ebus~~
 2. [DOBOT机械臂SDK](https://cn.dobot.cc/downloadcenter.html)，注意要把DLL库放到系统的环境变量中(E:\ArmsWork\WX_jump\wechat_jump\DobotDemoForPython)
-3. `pip3 install PyQt5,opencv`
+3. `pip3 install PyQt5 opencv-python`
 
 ## 运行相机拍摄程序
-先`cd 1-AsyncImageRecordingSample/bin/Release/`后运行`AsyncImageRecordingSample.exe`开始相机的拍摄，界面使用部分见 [camera.md](https://github.com/Jarvis-K/wechat_jump/blob/master/camera.md)
+先 `cd 1-AsyncImageRecordingSample/bin/Release/` 后运行`AsyncImageRecordingSample.exe`开始相机的拍摄，界面使用部分见 [camera.md](https://github.com/Jarvis-K/wechat_jump/blob/master/camera.md)
 
 ## 运行识别与操作程序
 `python AllForOne.py`运行程序，界面如下
@@ -15,10 +15,15 @@
 
 
 # 代码逻辑
+
 # 相机代码
+
 见 [camera.md](https://github.com/Jarvis-K/wechat_jump/blob/master/camera.md)
+
 # 识别代码
+
 ## 载入待识别图片与模版
+
 载入棋子，结束以及白点的模版：
 
 

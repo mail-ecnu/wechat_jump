@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit, QGridLayout, QApplication, QPushButton)
 from PyQt5 import QtGui, QtCore
-import play
+import play  # _test as play
 from directory import *
 
 
@@ -31,7 +31,7 @@ def changeText(label,text):
 
 class Example(QWidget):
     signal1 = QtCore.pyqtSignal(int)
-    wJump = play.wechatJump()
+    wJump = play.WechatJump()
 
     def __init__(self):
         super().__init__()
@@ -46,7 +46,7 @@ class Example(QWidget):
         print('stopppppp')
 
     def signalCall1(self, press_time):
-        self.p0 = ProcessRunnable(target=changeImg, args=(self.imageLabel, '%slast0.png' % temp_dir))
+        self.p0 = ProcessRunnable(target=changeImg, args=(self.imageLabel, '%sphone_screen.png' % temp_dir))
         self.p1 = ProcessRunnable(target=changeImg, args=(self.imageLabel2, '%slast1.png' % temp_dir))
         self.p2 = ProcessRunnable(target=changeText,args=(self.timeLineLabel, press_time))
         self.p0.start()

@@ -5,9 +5,10 @@ import numpy as np
 def get_img(idx):
     img_rgb = cv2.flip(np.transpose(cv2.imread('doc/temp/phone.png', 0)), 0)
     img_rgb, canny_img = getScreen(img_rgb)
+    cv2.imwrite('doc/temp/phone_screen.png', img_rgb)
 
-    cv2.imwrite('doc/temp/last0.png', img_rgb)
-    cv2.imwrite('doc/temp/process_%d_pre0.png' % idx, img_rgb)
+    # cv2.imwrite('doc/temp/last0.png', img_rgb)
+    # cv2.imwrite('doc/temp/process_%d_pre0.png' % idx, img_rgb)
     return img_rgb, canny_img
 
 
@@ -29,7 +30,7 @@ def getScreen(img_rgb):
     img_rgb = cv2.GaussianBlur(img_rgb, (9, 13), 0)
     gray = img_rgb
     ret, binary = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY)
-    _, contours0, hierarchy = cv2.findContours(binary, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    contours0, hierarchy = cv2.findContours(binary, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     size_rectangle_max = 0
     maxi = 0
     for i in range(len(contours0)):

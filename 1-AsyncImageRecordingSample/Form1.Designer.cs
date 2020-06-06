@@ -356,10 +356,11 @@ namespace SimpleImageDisplaySample
             this.recordingCountLabel.AutoSize = true;
             this.recordingCountLabel.Location = new System.Drawing.Point(6, 19);
             this.recordingCountLabel.Name = "recordingCountLabel";
-            this.recordingCountLabel.Size = new System.Drawing.Size(101, 12);
+            this.recordingCountLabel.Size = new System.Drawing.Size(89, 12);
             this.recordingCountLabel.TabIndex = 1;
-            this.recordingCountLabel.Text = "Recording count:";
+            this.recordingCountLabel.Text = "Recording cnt:";
             this.toolTip1.SetToolTip(this.recordingCountLabel, "Number of frames to record");
+            this.recordingCountLabel.Click += new System.EventHandler(this.RecordingCountLabel_Click);
             // 
             // captureCountNumericUpDown
             // 
@@ -374,7 +375,7 @@ namespace SimpleImageDisplaySample
             this.captureCountNumericUpDown.TabIndex = 0;
             this.toolTip1.SetToolTip(this.captureCountNumericUpDown, "Number of frames to record");
             this.captureCountNumericUpDown.Value = new decimal(new int[] {
-            100,
+            1,
             0,
             0,
             0});

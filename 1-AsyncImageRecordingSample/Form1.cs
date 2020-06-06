@@ -216,6 +216,7 @@ namespace SimpleImageDisplaySample
         {
             while (myCamera != null)
             {
+                
                 if (myCamera.IsAsyncImageRecordingRunning || (myCamera.TotalAsyncImagesRecordedCount > 0))
                 {
                     // DialogResult res = MessageBox.Show(this, "The Asychynchronuous Image Recording is already active or the internal buffer is not empty! Do you want to restart the image recording and discard recorded images?", "Asynchronous Image Capture", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -248,7 +249,7 @@ namespace SimpleImageDisplaySample
                     // if (MessageBox.Show(this, "Image save might take long time!\nAre you sure you want to continue?", "Image Save", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.OK)
                     // {
                     // Disable the Image Recording buttons as long as we are saving the images
-                    //asynchImageRecordingGroupBox.Enabled = false;
+                    // asynchImageRecordingGroupBox.Enabled = false;
 
                     // Get the recorded images as a list
                     List<Jai_FactoryWrapper.ImageInfo> imageList = myCamera.GetAsyncRecordedImages();
@@ -257,6 +258,7 @@ namespace SimpleImageDisplaySample
 
                     if (imageList != null && (imageList.Count > 0))
                     {
+                        Console.WriteLine("cnt = " + imageList.Count);
                         // Run through the list of recorded images
                         int index = myCamera.TotalAsyncImagesRecordedCount - 1;
                         Jai_FactoryWrapper.EFactoryError error = Jai_FactoryWrapper.EFactoryError.Success;
@@ -278,7 +280,7 @@ namespace SimpleImageDisplaySample
                         error = Jai_FactoryWrapper.J_Image_FromRawToImage(ref ii, ref localImageInfo, 4096, 4096, 4096);
 
                         // Save the image to disks
-                        error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "E:\\ArmsWork\\WX_jump\\wechat_jump\\doc\\temp\\" + "phone.png");
+                        error = Jai_FactoryWrapper.J_Image_SaveFile(ref localImageInfo, "D:\\wechat_jump\\doc\\temp\\" + "phone.png");
 
                         //Free the conversion buffer
                         error = Jai_FactoryWrapper.J_Image_Free(ref localImageInfo);
@@ -748,6 +750,11 @@ namespace SimpleImageDisplaySample
         }
 
         private void saveRawCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RecordingCountLabel_Click(object sender, EventArgs e)
         {
 
         }

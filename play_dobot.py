@@ -10,7 +10,9 @@ postion = [237.7514, 49.2358, -25.7501, 7.1569]
 
 
 def init(speed=100, coordinate=4000):
-    dType.SetPTPJointParams(api, speed, speed, speed, speed, speed, speed, speed, speed, isQueued=1)
+    dType.SetQueuedCmdClear(api)
+    dType.SetPTPJointParams(api, 200, 200, 200, 200, 200, 200, 200, 200, isQueued=1)
+    # dType.SetPTPJointParams(api, speed, speed, speed, speed, speed, speed, speed, speed, isQueued=1)
     dType.SetPTPCoordinateParams(api, coordinate, coordinate, coordinate, coordinate, isQueued=1)
 
 
@@ -38,26 +40,26 @@ def moveForward(offset=0):
     """
     dType.SetQueuedCmdClear(api)
     init()
-
     last_index = dType.SetPTPCmd(api, dType.PTPMode.PTPMOVLXYZMode,postion[0]+offset,postion[1],postion[2],postion[3])[0]  # 移动
     dType.SetQueuedCmdStartExec(api)
+
     while last_index > dType.GetQueuedCmdCurrentIndex(api)[0]:
         dType.dSleep(0)
     dType.SetQueuedCmdStopExec(api)
     dType.SetQueuedCmdClear(api)
 
 
-def play_1_loop(press_time, dobot_state):
+def play_1_loop(press_time):
+    dobot_state = dType.ConnectDobot(api, "", 115200)[0]
     if dobot_state == dType.DobotConnect.DobotConnect_NoError:
         moveForward()
         press_screen(press_time)
         time.sleep(1.7)
         moveForward(offset=-70)
+    dType.DisconnectDobot(api)
 
-        time1 = 0.2
-        time.sleep(time1)
-        divide = 500.0
-        if press_time / divide < time1:
-            time.sleep(time1)
-        else:
-            time.sleep(press_time / divide)
+    time.sleep(4)
+
+
+if __name__ == '__main__':
+    play_1_loop(555)
